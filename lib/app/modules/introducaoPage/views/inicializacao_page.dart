@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, implementation_imports, unnecessary_import, avoid_unnecessary_containers, unnecessary_const
 
+import 'package:agenda_escolar/app/modules/homePage/views/homePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -32,7 +33,7 @@ class InicializacaoPage extends StatelessWidget {
             color: Colors.blue.shade900,
             child: Container(
               margin: const EdgeInsets.all(40),
-              child: Image.asset('images/agenda_escolar.png'),
+              child: Image.asset('assets/images/agenda_escolar.png'),
             ),
           ),
           SizedBox(
@@ -67,7 +68,10 @@ class InicializacaoPage extends StatelessWidget {
                 color: Color.fromARGB(255, 13, 71, 163),
                 borderRadius: const BorderRadius.all(Radius.circular(10))),
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
               child: const Text('Vamos Começar!',
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white)),
