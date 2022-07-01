@@ -22,8 +22,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Agenda Escolar'),
         backgroundColor: Color.fromARGB(255, 13, 71, 163),
+        title: Text('Agenda Escolar'),
       ),
       body: _body(context),
       floatingActionButton: FloatingActionButton(
@@ -197,10 +197,7 @@ class _HomePageState extends State<HomePage> {
           //     context, MaterialPageRoute(builder: (context) => ClassRPG()));
         },
         child: Text('Agendamentos',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontFamily: 'Ancient_Medium')),
+            style: TextStyle(color: Colors.white, fontSize: 18)),
       ),
     );
   }
@@ -221,8 +218,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: Text(
           'Turma',
-          style: TextStyle(
-              color: Colors.white, fontSize: 20, fontFamily: 'Ancient_Medium'),
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
     );

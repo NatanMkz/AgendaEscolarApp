@@ -1,25 +1,23 @@
-// ignore_for_file: curly_braces_in_flow_control_structures, unnecessary_new, unused_import, prefer_collection_literals, avoid_print, avoid_web_libraries_in_flutter
+// ignore_for_file: file_names, unnecessary_new, curly_braces_in_flow_control_structures, avoid_print
 
-import 'dart:io';
-import 'package:http/http.dart' as http;
-import 'package:agenda_escolar/app/data/materia.dart';
-//import 'package:masterdice/models/classes.dart';
 import 'dart:convert';
-import 'package:agenda_escolar/globais.dart' as globais;
 
-class MateriasRequisitor {
+import 'package:agenda_escolar/app/data/professor.dart';
+import 'package:http/http.dart' as http;
+
+class ProfessorRequisitor {
   //HttpClient _http = HttpClient();
 
-  Future<List<Materia>> materiasBuscar() async {
+  Future<List<Professor>> retorna() async {
     try {
-      var url = "https://agenda-escolar-api.herokuapp.com/Materia/buscar";
+      var url = "https://agenda-escolar-api.herokuapp.com/Professor/buscar";
       //var urldeteste = "https://localhost:7217/Materia/buscar";
       // ignore: close_sinks
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         //var lista = response.body;
         //Map<String, dynamic> parsed = jsonDecode(lista);
-        List<Materia> materias = parseResponse(response.body);
+        List<Professor> materias = parseResponse(response.body);
 
         return materias;
       } else
@@ -29,9 +27,9 @@ class MateriasRequisitor {
     }
   }
 
-  Future<String> criarMateria(String nome) async {
+  Future<String> cadastrar(String nome) async {
     try {
-      var url = "https://agenda-escolar-api.herokuapp.com/Materia/adicionar";
+      var url = "https://agenda-escolar-api.herokuapp.com/Professor/adicionar";
       //var urldeteste = "https://localhost:7217/Materia/adicionar";
       Uri uri = Uri.parse(url);
       const headers = {"content-type": "application/json"};
@@ -39,21 +37,21 @@ class MateriasRequisitor {
         "nome": nome,
       });
       final response = await http.post(uri, headers: headers, body: msg);
-      print('addEmployee Response: ${response.body}');
+      print('Professor Response: ${response.body}');
       if (200 == response.statusCode) {
-        print('materia criada com sucesso');
+        print('Professor cadastrado com sucesso');
         return response.body;
       } else {
         return "error";
       }
     } catch (e) {
-      return "Não foi possivel criar a materia";
+      return "Não foi possivel cadastrar o professor";
     }
   }
 
-  Future<String> editarMateria(int id, String nome) async {
+  Future<String> editar(int id, String nome) async {
     try {
-      var url = "https://agenda-escolar-api.herokuapp.com/Materia/editar";
+      var url = "https://agenda-escolar-api.herokuapp.com/Professor/editar";
       //var urldeteste = "https://localhost:7217/Materia/adicionar";
       Uri uri = Uri.parse(url);
       const headers = {"content-type": "application/json"};
@@ -64,19 +62,19 @@ class MateriasRequisitor {
       final response = await http.put(uri, headers: headers, body: msg);
       print('Retorno Editar: ${response.body}');
       if (200 == response.statusCode) {
-        print('materia editada com sucesso');
+        print('Professor alterado com sucesso');
         return response.body;
       } else {
         return "error";
       }
     } catch (e) {
-      return "Não foi possivel editar a materia";
+      return "Não foi possivel alterar o professor";
     }
   }
 
-  Future<bool> materiasRemover(int id) async {
+  Future<bool> remover(int id) async {
     try {
-      var url = "https://agenda-escolar-api.herokuapp.com/Materia/delete/$id";
+      var url = "https://agenda-escolar-api.herokuapp.com/Professor/delete/$id";
       const headers = {"content-type": "application/json"};
       final response = await http.delete(Uri.parse(url), headers: headers);
       if (response.statusCode == 200) {
@@ -92,13 +90,13 @@ class MateriasRequisitor {
     }
   }
 
-  static List<Materia> parseResponse(String responseBody) {
+  static List<Professor> parseResponse(String responseBody) {
     final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-    return parsed.map<Materia>((json) => Materia.fromJson(json)).toList();
+    return parsed.map<Professor>((json) => Professor.fromJson(json)).toList();
   }
 
   static bool parseDeleteResponse(String responseBody) {
     final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-    return parsed.map<Materia>((json) => Materia.fromJson(json)).toList();
+    return parsed.map<Professor>((json) => Professor.fromJson(json)).toList();
   }
 }
