@@ -152,7 +152,10 @@ class _HomePageState extends State<HomePage> {
             color: Colors.blue.shade400),
         child: MaterialButton(
             color: Colors.blue.shade400,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MateriasPage()));
+            },
             child: Text(
               'Matérias',
               style: TextStyle(color: Colors.white, fontSize: 20),
@@ -171,8 +174,8 @@ class _HomePageState extends State<HomePage> {
       child: MaterialButton(
         color: Colors.deepOrange.shade300,
         onPressed: () {
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => ClassRPG()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ProfessorPage()));
         },
         child: Text(
           'Professores',
@@ -193,8 +196,8 @@ class _HomePageState extends State<HomePage> {
       child: MaterialButton(
         color: Colors.green.shade400,
         onPressed: () {
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => ClassRPG()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AgendamentosPage()));
         },
         child: Text('Agendamentos',
             style: TextStyle(

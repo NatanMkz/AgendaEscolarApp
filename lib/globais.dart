@@ -2,10 +2,13 @@
 
 library globais;
 
+import 'package:agenda_escolar/app/data/agendamento.dart';
 import 'package:agenda_escolar/app/data/materia.dart';
 import 'package:agenda_escolar/app/data/professor.dart';
 
 final Materia materia = Materia("", '');
 Professor professor = Professor(0, '');
+Agendamento agendamento = Agendamento(0, '', '', '');
 List<Materia> materias = [];
 List<Professor> professores = [];
+List<Agendamento> agendamentos = [];

@@ -16,17 +16,17 @@ class Agendamento {
   );
 
   Agendamento.fromJson(Map<String, dynamic> json) {
-    id = json["Id"]?.toString() as int;
-    nome = json["Nome"].toString();
-    professorNome = json["ProfessorNome"].toString();
-    materiaNome = json["MateriaNome"].toString();
+    id = json["id"];
+    nome = json["nome"].toString();
+    professorNome = json["professorNome"].toString();
+    materiaNome = json["materiaNome"].toString();
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data["Id"] = id;
-    data["Nome"] = nome;
-    data["ProfessorNome"] = professorNome;
-    data["MateriaNome"] = materiaNome;
+    data["id"] = id;
+    data["nome"] = nome;
+    data["professorNome"] = professorNome;
+    data["materiaNome"] = materiaNome;
     return data;
   }
 }

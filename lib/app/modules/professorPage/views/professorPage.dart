@@ -278,7 +278,7 @@ class _ProfessorPageState extends State<ProfessorPage> {
   }
 
   _body(BuildContext context) {
-    //atualizaTabela();
+    atualizaTabela();
     return Container(
         margin: EdgeInsets.only(top: 20, bottom: 35),
         height: MediaQuery.of(context).size.height,
