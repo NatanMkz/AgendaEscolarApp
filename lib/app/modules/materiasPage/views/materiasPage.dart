@@ -289,7 +289,7 @@ class _MateriasPageState extends State<MateriasPage> {
           scrollDirection: Axis.vertical,
           child: DataTable(
             columns: [
-              DataColumn(label: Text('ID')),
+              //DataColumn(label: Text('ID')),
               DataColumn(label: Text('Nome')),
               DataColumn(label: Icon(Icons.edit_rounded)),
               DataColumn(label: Icon(Icons.delete))
@@ -297,10 +297,6 @@ class _MateriasPageState extends State<MateriasPage> {
             rows: materias
                 .map((e) => DataRow(
                       cells: [
-                        DataCell(
-                          Text(e.id.toString()),
-                          onTap: () {},
-                        ),
                         DataCell(
                           Text(e.nome),
                           onTap: () {},

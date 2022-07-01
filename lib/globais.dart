@@ -8,3 +8,4 @@ import 'package:agenda_escolar/app/data/professor.dart';
 final Materia materia = Materia("", '');
 Professor professor = Professor(0, '');
 List<Materia> materias = [];
+List<Professor> professores = [];
